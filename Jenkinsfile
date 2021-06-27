@@ -34,12 +34,6 @@ pipeline {
             archiveArtifacts artifacts: '**/target/*.war'
                
             }
-            
-            
-            post {
-               
-                    archiveArtifacts 'target/*.jar'
-    			}
 			}    
     }	
 }
