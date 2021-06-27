@@ -9,6 +9,8 @@ pipeline {
     	{
     		steps{
     			git 'https://github.com/tushar30nov/Timetracker2.git'
+			
+		echo "Checkout done"
     		}
     	
     	}
@@ -16,13 +18,14 @@ pipeline {
         
             steps {
              sh "mvn clean package"
-               
+             echo "Build completed"
             }
             
         }
         stage('Test') {
             steps {
                 sh "mvn clean test"
+		 echo "Test completed"
             }
             
         }
@@ -31,9 +34,10 @@ pipeline {
         
             steps {
             sh "mvn clean deploy"
-            archiveArtifacts artifacts: '**/target/*.war'
-               
+		    post{
+            		archiveArtifacts artifacts: '**/target/*.war'
+		    }
             }
-			}    
+	}    
     }	
 }
