@@ -35,7 +35,7 @@ pipeline {
             steps {
             sh "mvn clean deploy"
 		    post{
-            		archiveArtifacts artifacts: '**/target/*.war'
+            		archiveArtifacts artifacts: '**/*.jar'
 		    }
             }
 	}    
