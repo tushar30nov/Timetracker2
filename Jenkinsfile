@@ -2,7 +2,7 @@
 pipeline {
 
 	agent any
-	environmnet{
+	environment{
 		url = 'http://localhost:8082'
 		contextPath = 'web'
 	}
