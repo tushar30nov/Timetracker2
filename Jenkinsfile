@@ -3,7 +3,7 @@ pipeline {
 
 	agent any
 	environment{
-		url = 'http://localhost:8082'
+		url = 'http://localhost:8081'
 		contextPath = 'time-tracker2'
 	}
     stages {
