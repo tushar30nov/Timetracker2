@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy') {   
         
             steps {
-            deploy adapters: [tomcat9(credentialsId: 'admin1', path: '', url: 'http://localhost:8081')], contextPath: 'time-tracker2', war: 'time-tracker-web-0.5.0-SNAPSHOT.war'
+            sh "deploy adapters: [tomcat9(credentialsId: 'admin1', path: '', url: 'http://localhost:8081')], contextPath: 'time-tracker2', war: 'time-tracker-web-0.5.0-SNAPSHOT.war'"
 		 
             }
 	}    
