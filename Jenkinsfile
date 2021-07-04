@@ -2,6 +2,9 @@
 pipeline {
 
 	agent any
+	environmnet{
+		url = 'http://localhost:8082'
+		contextPath = 'web'
 	
     stages {
     
