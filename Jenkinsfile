@@ -40,8 +40,9 @@ pipeline {
         stage('Deploy') {   
         
             steps {
+		    sh "java -war target/time-tracker-web-0.5.0-SNAPSHOT.war --server.port=8081"
             
-		    deploy adapters: [tomcat9(credentialsId: 'admin1', path: '', url: 'http://localhost:8081')], contextPath: 'time-tracker2', onFailure: false, war: 'time-tracker-web-0.5.0-SNAPSHOT.war'
+		    //deploy adapters: [tomcat9(credentialsId: 'admin1', path: '', url: 'http://localhost:8081')], contextPath: 'time-tracker2', onFailure: false, war: 'time-tracker-web-0.5.0-SNAPSHOT.war'
 		 
             }
 	}    
