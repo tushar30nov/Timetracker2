@@ -14,26 +14,30 @@ pipeline {
     		}
     	
     	}
-        stage('Build') {   
-        
-            steps {
-             sh "mvn clean package"
-             echo "Build completed"
-            }
-            
-        }
-        stage('Test') {
+	    
+	  stage('Test') {
             steps {
                 sh "mvn clean test"
 		 echo "Test completed"
             }
             
+        }  
+	    
+	    
+        stage('Build') {   
+        
+            steps {
+             sh "mvn package"
+             echo "Build completed"
+            }
+            
         }
+        
         
         stage('Deploy') {   
         
             steps {
-            sh "mvn clean deploy"
+            deploy adapters: [tomcat9(credentialsId: 'admin1', path: '', url: 'http://localhost:8082')], contextPath: 'web', war: 'time-tracker-web-0.5.0-SNAPSHOT.war'
 		 
             }
 	}    
