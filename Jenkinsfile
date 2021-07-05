@@ -2,10 +2,8 @@
 pipeline {
 
 	agent any
-	environment{
-		url = 'http://localhost:8081'
-		contextPath = 'time-tracker2'
-	}
+		
+	
     stages {
     
     	stage('Checkout')
@@ -43,7 +41,7 @@ pipeline {
             steps {
 		    
             
-		    deploy adapters: [tomcat9(credentialsId: 'admin1', path: '', url: 'http://localhost:8081')], contextPath: 'time-tracker2', onFailure: false, war: 'time-tracker-web-0.5.0-SNAPSHOT.war'
+		    deploy adapters: [tomcat9(credentialsId: 'admin1', path: '', url: 'http://localhost:8081')], contextPath: '/Users/tusharhadke/Desktop/DevOps/Jenkins Pipeline assignment/time-tracker2/web/target', onFailure: false, war: 'time-tracker-web-0.5.0-SNAPSHOT.war'
 		 
             }
 	}    
