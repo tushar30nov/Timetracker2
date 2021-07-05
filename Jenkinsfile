@@ -32,6 +32,7 @@ pipeline {
             steps {
              sh "mvn package"
              echo "Build completed"
+		archiveArtifacts artifacts: '**/target/*.war'
             }
             
         }
